@@ -8,7 +8,8 @@ int pot3 = A2;
 int op = 0;
 int v1 = 0;
 int v2 = 0;
-float r = 0;
+int r = 0;
+float rDiv = 0;
 String sinal;
 
   
@@ -61,7 +62,7 @@ void loop()
   		lcd.setCursor(1, 0);
     	lcd.print("Multiplicacao");
     
-    	r = v1 * 2;
+    	r = v1 * v2;
     	sinal = " x ";
     	break;
     
@@ -70,17 +71,28 @@ void loop()
   		lcd.setCursor(4, 0);
     	lcd.print("Divisao");
     
-    	r = float(v1) / v2;
+    	rDiv = float(v1) / v2;
     	sinal = " / ";
     	break;
   }
   
   if(op != 1) {
-  	lcd.setCursor(1, 1);
-    lcd.print(v1);
-    lcd.print(sinal);
-    lcd.print(v2);
-    lcd.print(" = ");
-    lcd.print(r);
+    
+    if(op == 5) {
+    	lcd.setCursor(1, 1);
+        lcd.print(v1);
+        lcd.print(sinal);
+        lcd.print(v2);
+        lcd.print(" = ");
+        lcd.print(rDiv);
+    } 
+    else {
+    	lcd.setCursor(1, 1);
+        lcd.print(v1);
+        lcd.print(sinal);
+        lcd.print(v2);
+        lcd.print(" = ");
+        lcd.print(r);
+    }
   }
 }

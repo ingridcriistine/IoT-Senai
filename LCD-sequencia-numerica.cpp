@@ -88,12 +88,7 @@ byte simbolo8[8]{
     B00000,
     B11000,
     B11100
-};
-
-
-
-
-  
+}; 
 
 void setup()
 {

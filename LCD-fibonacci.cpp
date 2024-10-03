@@ -310,9 +310,9 @@ void loop()
     }
     else if (prev > 999) {
     	primeiro = prev / 1000;
-      	segundo = (prev / 100) % 10;
-      	terceiro = (prev % 1000) / 100;
-        quarto = (prev % 1000) / 1000;
+      	segundo = (prev % 1000) / 100;
+      	terceiro = ((prev % 1000) % 100) / 10;
+        quarto = ((prev % 1000) % 100) % 10;
       
     	numeros(1, primeiro);
       	numeros(5, segundo);
@@ -327,5 +327,4 @@ void loop()
     delay(500);
     lcd.clear();
   }
-
 }

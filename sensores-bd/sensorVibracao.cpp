@@ -6,7 +6,7 @@ const int sensor = 3;
 void setup(){
   pinMode(sensor, INPUT); 
   pinMode(led, OUTPUT); 
-  digitalWrite(led, LOW);
+  digitalWrite(led, LOW); 
   Serial.begin(9600);
 }
  
@@ -18,4 +18,6 @@ void loop(){
     digitalWrite(led, LOW); 
     Serial.println("Desligado");
   }
+
+  delay(200);
 }

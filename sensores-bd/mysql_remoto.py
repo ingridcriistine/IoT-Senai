@@ -13,6 +13,14 @@ if con.is_connected():
 cursor.execute("SHOW TABLES")
 for x in cursor:
     print("minhas tabelas: ", x)
+
+# sql = "INSERT INTO bosch (nome_aluno, nome_sensor, valor_sensor) VALUES (%s, %s, %s)"
+# val = ("Seu_nome", "5", "teste")
+# cursor.execute(sql, val)
+
+# con.commit()
+
+# print(cursor.rowcount, "Dados gravados")
     
 cursor.execute("SELECT * FROM bosch")
                

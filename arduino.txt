@@ -1,0 +1,31 @@
+O Arduino é uma plataforma de prototipagem eletrônica de código aberto, que combina hardware 
+e software para facilitar o desenvolvimento de projetos interativos. Criado em 2005, o Arduino 
+permite que usuários de diferentes níveis de experiência, desde iniciantes até profissionais, 
+criem dispositivos que podem interagir com o ambiente físico.
+
+Alimentação do arduino:
+5V pelo USB
+9 - 12V pelo plug
+
+ATMEGA328P
+Tx e Rx : pinos utilizados para conexão USB -> monitor serial
+
+
+Memória flash: 
+32 KBytes
+512 Bytes para bootloader
+2 KBytes Ram (memória de trabalho)
+1 KBytes EEPROM (não volátil)
+
+Pinos de PWM (Pulse Width Modulation)
+pinos digitais que simulam pinos analógicos
+-> 8 bits (de 0-255)
+
+Pinos analógicos
+utilizados para entradas analógicas em digitais
+-> Convertem entradas analógicas em digitais de 10 bits (de 0-1023)
+    A0 -> A5
+
+• Pinos 3, 5, 6, 9, 10 e 11 podem ser usados como saídas PWM, simulando uma porta analógica;
+• Pinos 0 e 1 (RX e TX) podem ser utilizados para comunicação serial;
+• Pinos 2 e 3 podem ser configurados para gerar uma interrupção externa.

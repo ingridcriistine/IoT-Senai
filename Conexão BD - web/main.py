@@ -24,5 +24,7 @@ tamanho = len(data)
 item = (data[tamanho-1][0])
 print(item)
 
-con.commit()
+ser.write(item.encode())
+time.sleep(0.1)
+
 ser.close()

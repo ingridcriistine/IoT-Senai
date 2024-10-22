@@ -20,8 +20,8 @@ time.sleep(10) # Tempinho pq ninguém é de ferro
 # pegar do banco
 cursor.execute("select valor_sensor from bosch where nome_aluno = 'Ingrid-Milena'")
 data = cursor.fetchall()
-
-item = (data[len(data)-1]).strip("\rn")
+tamanho = len(data)
+item = (data[tamanho-1][0])
 print(item)
 
 con.commit()

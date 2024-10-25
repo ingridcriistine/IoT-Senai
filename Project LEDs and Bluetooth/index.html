@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dados do MySQL</title>
+  <style>
+    #meuCanvas {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dados do Banco de Dados</h1>
+  <div id="dados"></div>
+  <div>
+    <canvas id="meuCanvas"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    let dados = [];
+    let ctx;
+
+    async function fetchSensorData() {
+        try {
+            const response = await fetch('./dados.json'); 
+
+            if (!response.ok) {
+                throw new Error('Erro ao buscar dados: ' + response.statusText);
+            }
+
+            const data = await response.json();
+
+            // Converter valores para números
+            data.forEach(item => {
+                dados.push(Number(item.valor_sensor)); // Converte para número
+                console.log(item.valor_sensor); // Para verificar se os dados estão corretos
+            });
+
+            // Adicionando rótulos ao eixo X (se não tiver rótulos específicos)
+            const labels = data.map((_, index) => `Ponto ${index + 1}`);
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels, // Adicionando rótulos ao eixo X
+                    datasets: [{
+                        label: 'Valores do Sensor',
+                        data: dados,
+                        borderWidth: 1,
+                        borderColor: 'blue', 
+                        fill: false // Para não preencher a área abaixo da linha
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    window.onload = function() {
+        const canvas = document.getElementById('meuCanvas');
+        ctx = canvas.getContext('2d');
+        fetchSensorData(); 
+    };
+  </script>
+</body>
+</html>
